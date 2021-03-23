@@ -1,6 +1,66 @@
-<div class="container">
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container-fluid text-center">
+    {{ form_start(form)}}
+
+
+        <div class="form-group mb-2 ">
+            {{ form_label(form.marque, 'Marque') }}
+            {{ form_widget(form.marque, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.kilometrage, 'KM') }}
+            {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.annee, 'Année') }}
+            {{ form_widget(form.annee, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.imatriculation, 'immatriculation') }}
+            {{ form_widget(form.imatriculation, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+
+        <div class="form-group mb-2">
+            {{ form_label(form.miseencirculation, 'Date mise en circulation') }}
+            {{ form_widget(form.miseencirculation, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.porte, 'Nbre Porte') }}
+            {{ form_widget(form.porte, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.puissance, 'Puissance') }}
+            {{ form_widget(form.puissance, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+        
+        
+        <div class="form-group mb-2">
+            {{ form_label(form.note, 'Note') }}
+            {{ form_widget(form.note, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.carburant, 'Carburant') }}
+            {{ form_widget(form.carburant, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div>
+
+        <div class="form-group mb-2">
+            {{ form_label(form.boite, 'Boîte') }}
+            {{ form_widget(form.boite, {'attr': {'class': 'form-control col-md-4 mx-auto'}}) }}
+        </div><br>
+
+      
+<div class="row " style="margin-left:43%; margin-bottom:5%;">
+         <a href="{{ path('vehicule_index') }}"><button class="btn btn-secondary" >Retour liste</button></a>
+
+        <button class="btn btn-success ml-2">{{ button_label|default('Sauvegarder') }}</button>
+</div>
+
+    {{ form_end(form)}}
+    
 </div>
