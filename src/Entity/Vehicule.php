@@ -46,11 +46,6 @@ class Vehicule
     /**
      * @ORM\Column(type="integer")
      */
-    private $miseencirculation;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $porte;
 
     /**
@@ -68,6 +63,16 @@ class Vehicule
      * @ORM\JoinColumn(nullable=false)
      */
     private $boite;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $miseencirculation;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $model;
 
     public function getId(): ?int
     {
@@ -134,17 +139,7 @@ class Vehicule
         return $this;
     }
 
-    public function getMiseencirculation(): ?int
-    {
-        return $this->miseencirculation;
-    }
-
-    public function setMiseencirculation(int $miseencirculation): self
-    {
-        $this->miseencirculation = $miseencirculation;
-
-        return $this;
-    }
+   
 
     public function getPorte(): ?int
     {
@@ -190,6 +185,30 @@ class Vehicule
     public function setBoite(?Boiteav $boite): self
     {
         $this->boite = $boite;
+
+        return $this;
+    }
+
+    public function getMiseencirculation(): ?\DateTimeInterface
+    {
+        return $this->miseencirculation;
+    }
+
+    public function setMiseencirculation(\DateTimeInterface $miseencirculation): self
+    {
+        $this->miseencirculation = $miseencirculation;
+
+        return $this;
+    }
+
+    public function getModel(): ?string
+    {
+        return $this->model;
+    }
+
+    public function setModel(string $model): self
+    {
+        $this->model = $model;
 
         return $this;
     }
