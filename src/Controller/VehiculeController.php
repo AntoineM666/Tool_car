@@ -15,6 +15,17 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class VehiculeController extends AbstractController
 {
+
+    
+    /**
+     * @Route ("/home", name="home")
+     */
+    public function home()
+    {
+            return $this->render("vehicule/home.html.twig");
+    }
+
+
     /**
      * @Route("/", name="vehicule_index", methods={"GET"})
      */

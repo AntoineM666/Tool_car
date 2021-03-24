@@ -22,13 +22,13 @@
         {% block body %} 
         {# navigation #}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a href="#"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
+  <a href="{{ path('home') }}"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
   
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">stock <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{ path('vehicule_index') }}">stock <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">historique</a>
