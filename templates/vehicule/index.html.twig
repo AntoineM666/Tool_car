@@ -4,16 +4,18 @@
 
 {% block body %} {{ parent() }}
 
-    <div class="card mx-auto" style="width: 90%;">
+    <div class="card mx-auto" >
         <div class="card-body">
 
             <h3 class="card-title text-center title">Stock des véhicules</h3><br>
-
-    <div class="table-responsive">
+ <a href="{{ path('vehicule_new') }}"><button type="button" class="btn btn-primary mx-1 my-2 mb-4">Ajouter un nouveau véhicule</button></a>
+            
+    <div class="table">
             <table class="table text-center">
                 <thead>
                     <tr>
                         <th>Marque</th>
+                        <th>Modèle</th>
                         <th>Km</th>
                         <th>Année</th>
                         <th>Immatriculation</th>
@@ -31,18 +33,20 @@
         {% for vehicule in vehicules %}
             <tr>
                 <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.model }}</td>
                 <td>{{ vehicule.kilometrage }}</td>
                 <td>{{ vehicule.annee }}</td>
                 <td>{{ vehicule.imatriculation }}</td>
-                <td>{{ vehicule.miseencirculation }}</td>
+                <td>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
                 <td>{{ vehicule.boite }}</td>
                 <td>{{ vehicule.carburant }}</td>
                 <td>{{ vehicule.porte }}</td>
                 <td>{{ vehicule.puissance }}</td>
                 <td>{{ vehicule.note }}</td>
-                <td>
-                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-success">Voir</button></a>
-                    <a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button type="button" class="btn btn-warning">Modifier</button></a>
+                <td class="row">
+                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-success ">Voir</button></a>
+                    
+                    {{ include('vehicule/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}
@@ -56,9 +60,7 @@
 
 
           
-
-            <a href="{{ path('vehicule_new') }}"><button type="button" class="btn btn-dark mx-1 my-2">Ajouter un nouveau véhicule</button></a>
-            
+           
         </div>
     </div>
 {% endblock %}
