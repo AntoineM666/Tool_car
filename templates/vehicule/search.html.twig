@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche{% endblock %}
+{% block body %}{{ parent() }}
+<div class="form-group">
+
+   
+    <div class="container">
+        <div class="row" >
+        <div >
+            {{ form_start(searchForm) }}
+        {{ form_row(searchForm.marque, {'label': " ", 'attr': {'placeholder': 'mot clé...'}}) }}
+        {{ form_end(searchForm) }}
+           </div>
+
+       
+
+        <div> <button class="btn btn-outline-success mt-4"  type="submit">Search</button></div>
+     </div>
+        <table class="table" >
+            <thead>
+
+                <th>marque</th>
+
+                <th>action</th>
+
+            </thead>
+            <tbody>
+                {% for vehicule in vehicules %}
+
+
+
+                <tr>
+                    <td>{{ vehicule.marque}}</td>
+                    <td class="row">
+                        <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-success ">Voir</button></a>
+                        
+                        {{ include('vehicule/_delete_form.html.twig') }}
+                    </td>
+
+
+                
+                
+
+                </tr>
+
+
+                {% endfor %}
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% endblock %}
+    

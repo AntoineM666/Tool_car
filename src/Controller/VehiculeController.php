@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Form\SearchFormType;
 use App\Form\Vehicule1Type;
 use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -10,17 +11,20 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
+
 /**
- * @Route("/vehicule")
+ * @Route("/")
  */
 class VehiculeController extends AbstractController
 {
 
     
+    
     /**
      * @Route ("/home", name="home")
      */
-    public function home()
+    public function home(  )
     {
             return $this->render("vehicule/home.html.twig");
     }
@@ -102,4 +106,43 @@ class VehiculeController extends AbstractController
 
         return $this->redirectToRoute('vehicule_index');
     }
+
+
+
+
+
+    
+      /**
+     * 
+     * @Route("/vehicule/recherche", name="search")
+     */
+    public function recherche(Request $request, VehiculeRepository $repo ) {
+      
+        $searchForm = $this->createForm(SearchFormType::class);
+        $searchForm->handleRequest($request);
+        
+        $donnees = $repo;
+ 
+        if ($searchForm->isSubmitted() && $searchForm->isValid()) {
+ 
+            $marque = $searchForm->getData()->getMarque();
+
+            $donnees = $repo->search($marque);
+
+
+            if ($donnees == null) {
+                $this->addFlash('erreur', 'Aucun article contenant ce mot clé dans le titre n\'a été trouvé, essayez en un autre.');
+           
+            }
+
+    }
+
+
+        return $this->render('vehicule/search.html.twig', [
+            'vehicules'=>$donnees ,
+            'searchForm' => $searchForm->createView()
+        ]);
+    }
+
+  
 }
