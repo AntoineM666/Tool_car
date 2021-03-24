@@ -3,7 +3,7 @@
 {% block title %}Véhicule{% endblock %}
 
 {% block body %} {{ parent() }}
-<div class="card mx-auto" style="width:70%;">
+<div class="card mx-auto" style="width:70%; border:2px gray solid; margin-bottom:5%;">
         <div class="card-body">
 
             <h3 class="card-title text-center">{{ vehicule.marque | upper }} - {{ vehicule.model | upper }}</h3>
@@ -13,39 +13,39 @@
                     <tbody>
            
             <tr>
-                <th>Marque</th>
-                <td>{{ vehicule.marque }}</td>
+                <th class="border-list">Marque</th>
+                <td >{{ vehicule.marque }}</td>
             </tr>
              <tr>
-                <th>Modèle</th>
+                <th class="border-list">Modèle</th>
                 <td>{{ vehicule.model }}</td>
             </tr>
             <tr>
-                <th>Kilométrage</th>
+                <th class="border-list">Kilométrage</th>
                 <td>{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></td>
             </tr>
             <tr>
-                <th>Année</th>
+                <th class="border-list">Année</th>
                 <td>{{ vehicule.annee }}</td>
             </tr>
             <tr>
-                <th>Immatriculation</th>
+                <th class="border-list">Immatriculation</th>
                 <td>{{ vehicule.imatriculation }}</td>
             </tr>
             <tr>
-                <th>Mise en circulation</th>
+                <th class="border-list">Mise en circulation</th>
                 <td>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
             </tr>
             <tr>
-                <th>Nbre de Porte</th>
+                <th class="border-list">Nbre de Porte</th>
                 <td>{{ vehicule.porte }}</td>
             </tr>
             <tr>
-                <th>Puissance CV</th>
+                <th class="border-list">Puissance CV</th>
                 <td>{{ vehicule.puissance }}&nbsp;<span style="font-weight:bold;">Cv<span></td>
             </tr>
             <tr>
-                <th>Note</th>
+                <th class="border-list">Note</th>
                 <td>{{ vehicule.note }}</td>
             </tr>
 
@@ -53,10 +53,10 @@
                 <td><br><a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button class="btn btn-warning">Modifier</button></a></td>
             </tr>
         </tbody>
+
+    <img style="position:absolute; left:55%; width:35%;" src="{{ asset('../asset/img/vehicule.jpg') }}" alt="">
+
     </table>
-
-    
-
     
 
 <div class="text-right"> <a href="{{ path('vehicule_index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" style="color:black; margin-right:3%;" fill="currentColor" class="bi bi-box-arrow-right hover-arrow" viewBox="0 0 16 16">
