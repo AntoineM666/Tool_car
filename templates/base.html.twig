@@ -21,39 +21,29 @@
     
         {% block body %} 
         {# navigation #}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:black 4px solid;" id="top">
   <a href="{{ path('home') }}"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
   
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ path('vehicule_index') }}">stock <span class="sr-only">(current)</span></a>
-      </li>
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">historique</a>
+        <a class="nav-link nav_hover" href="{{ path('vehicule_index') }}">stock</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path('search') }}">rechercher
-          </a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+      <li class="nav-item nav_hover">
+        <a class="nav-link " href="{{ path('search') }}">rechercher</a>
       </li>
+      
     </ul>
   
   </div>
 </nav>
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" style="border-bottom:black 4px solid;">
       
       <img src="{{ asset('../asset/img/LOGO-CAR-TOOL.jpg') }}" alt="logo" class="img-logo">
         
 </div>
+
 
         {% endblock %}
     </body>

@@ -3,6 +3,8 @@
 {% block title %}Stock des Véhicules{% endblock %}
 
 {% block body %} {{ parent() }}
+<body>
+    
 
     <div class="card mx-auto" >
         <div class="card-body">
@@ -44,7 +46,7 @@
                 <td class="border-list">{{ vehicule.puissance }}</td>
                 <td >{{ vehicule.note }}</td>
                 <td class="row">
-                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-success ">Voir</button></a>
+                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                     
                     {{ include('vehicule/_delete_form.html.twig') }}
                 </td>
@@ -59,9 +61,10 @@
     </div>
 
 
-          
-           
         </div>
+       
+
     </div>
+</body>
 {% endblock %}
 

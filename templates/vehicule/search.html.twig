@@ -2,55 +2,60 @@
 
 {% block title %}Recherche{% endblock %}
 {% block body %}{{ parent() }}
-<div class="form-group">
-
-   
-    <div class="container">
-        <div class="row" >
-        <div >
+  <body>
+      
+    <div class="container-fluid">
+    
+        <div class="row" style="margin-left:0.5%;">
+        <div class="">
             {{ form_start(searchForm) }}
         {{ form_row(searchForm.marque, {'label': " ", 'attr': {'placeholder': 'mot clé...'}}) }}
-        {{ form_end(searchForm) }}
+        
            </div>
 
-       
-
-        <div> <button class="btn btn-outline-success mt-4"  type="submit">Search</button></div>
+        <div > <button class="btn btn-outline-success mt-4 "  type="submit">Search</button></div>
      </div>
-        <table class="table" >
-            <thead>
+     {{ form_end(searchForm) }}
+     
+     
+       
+        <div class="table">
+            <table class="table table-striped text-center">
+                <thead class="thead-dark">
+                    <tr>
+                        <th >Marque</th>
+                        <th>Modèle</th>
+                        <th>Immatriculation</th>
+                        <th>Mise En Circulation</th>
+                        <th></th>
+                    </tr>
+                </thead>
 
-                <th>marque</th>
-
-                <th>action</th>
-
-            </thead>
-            <tbody>
-                {% for vehicule in vehicules %}
-
-
-
-                <tr>
-                    <td>{{ vehicule.marque}}</td>
-                    <td class="row">
-                        <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-success ">Voir</button></a>
-                        
-                        {{ include('vehicule/_delete_form.html.twig') }}
-                    </td>
-
-
-                
-                
-
-                </tr>
+               <tbody>{% for vehicule in vehicules %}
+        
+            <tr>
+                <td class="border-list">{{ vehicule.marque }}</td>
+                <td class="border-list">{{ vehicule.model }}</td>
+                <td class="border-list">{{ vehicule.imatriculation }}</td>
+                <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
+                <td style="margin-left:25%;" class="row">
+                    <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
+                    
+                    {{ include('vehicule/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">Liste vide</td>
+            </tr>
+     
+        </tbody>
+    </table>
 
 
                 {% endfor %}
-            </tbody>
-
-        </table>
-
-    </div>
-
+         
+</div>
+  </body>
     {% endblock %}
     
