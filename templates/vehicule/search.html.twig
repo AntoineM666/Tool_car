@@ -35,11 +35,11 @@
                <tbody>{% for vehicule in vehicules %}
         
             <tr>
-                <td class="border-list">{{ vehicule.marque }}</td>
-                <td class="border-list">{{ vehicule.model }}</td>
-                <td class="border-list">{{ vehicule.imatriculation }}</td>
-                <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
-                <td style="margin-left:25%;" class="row">
+                <td >{{ vehicule.marque }}</td>
+                <td >{{ vehicule.model }}</td>
+                <td >{{ vehicule.imatriculation }}</td>
+                <td >{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
+                <td class="row" style="margin-left:25%;">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                     
                     {{ include('vehicule/_delete_form.html.twig') }}

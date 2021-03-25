@@ -34,7 +34,7 @@
                <tbody>
         {% for vehicule in vehicules %}
             <tr>
-                <td class="border-list">{{ vehicule.marque }}</td>
+                <td class="border-list" style="border-left:2px solid gray;">{{ vehicule.marque }}</td>
                 <td class="border-list">{{ vehicule.model }}</td>
                 <td class="border-list">{{ vehicule.kilometrage }}</td>
                 <td class="border-list">{{ vehicule.annee }}</td>
@@ -44,8 +44,8 @@
                 <td class="border-list">{{ vehicule.carburant }}</td>
                 <td class="border-list">{{ vehicule.porte }}</td>
                 <td class="border-list">{{ vehicule.puissance }}</td>
-                <td >{{ vehicule.note }}</td>
-                <td class="row">
+                <td class="border-list" >{{ vehicule.note }}</td>
+                <td class="row" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5%;  border-bottom:2px solid gray;">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                     
                     {{ include('vehicule/_delete_form.html.twig') }}
