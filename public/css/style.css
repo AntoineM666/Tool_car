@@ -39,11 +39,12 @@ border: 4px solid black;
 
 .nav_hover:hover{
 color:black;
-font-weight: bolder;
+font-weight: 600;
+text-decoration: underline;
 }
 
 .nav_hover{
-   font-size: 19px;
+   font-size: 17.5px;
 }
 
 .text-home{

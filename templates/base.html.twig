@@ -21,7 +21,22 @@
     
         {% block body %} 
         {# navigation #}
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:black 4px solid;" id="top">
+
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
+  <ul class="navbar-nav">
+    <li class="nav-item nav_hover">
+      <a class="nav-link" href="{{ path('vehicule_index') }}">stock</a>
+    </li>
+     <li class="nav-item nav_hover">
+      <a class="nav-link" href="#">factures</a>
+    </li>
+    <li class="nav-item nav_hover">
+      <a class="nav-link" href="{{ path('search') }}">rechercher</a>
+    </li>
+  </ul>
+</nav>
+{# <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:black 4px solid;" id="top">
   <a href="{{ path('home') }}"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
   
 
@@ -37,8 +52,8 @@
     </ul>
   
   </div>
-</nav>
-<div class="jumbotron jumbotron-fluid" style="border-bottom:black 4px solid;">
+</nav> #}
+<div class="jumbotron jumbotron-fluid" style="border-bottom:black 3px solid; border-top:black 3px solid;margin-top:3%;">
       
       <img src="{{ asset('../asset/img/LOGO-CAR-TOOL.jpg') }}" alt="logo" class="img-logo">
         

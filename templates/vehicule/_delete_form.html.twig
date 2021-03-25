@@ -1,5 +1,30 @@
-<form method="post" action="{{ path('vehicule_delete', {'id': vehicule.id}) }}" onsubmit="return confirm('Êtes-vous certain de vouloir supprimer le véhicule?');">
+<form method="post" action="{{ path('vehicule_delete', {'id': vehicule.id}) }}" >
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ vehicule.id) }}">
-    <div class="text-center ml-2"><button class="btn btn-outline-danger">Supprimer</button></div>
-</form>
+    <div class="text-center ml-2"><button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-outline-danger">Supprimer</button></div>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Supprimer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment supprimer ce véhicule ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button " data-toggle="modal" data-target="{{ path('vehicule_delete', {'id': vehicule.id}) }}"  value="{{ csrf_token('delete' ~ vehicule.id) }}" class="btn btn-outline-danger">Supprimer</button></form>
+
+      </div>
+    </div>
+  </div>
+</div>
