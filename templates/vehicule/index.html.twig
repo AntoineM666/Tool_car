@@ -45,7 +45,7 @@
                 <td class="border-list">{{ vehicule.porte }}</td>
                 <td class="border-list">{{ vehicule.puissance }}</td>
                 <td class="border-list" >{{ vehicule.note }}</td>
-                <td class="row" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5%;  border-bottom:2px solid gray;">
+                <td class="row" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5%;   border-bottom:2px solid gray;">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                     
                     {{ include('vehicule/_delete_form.html.twig') }}
