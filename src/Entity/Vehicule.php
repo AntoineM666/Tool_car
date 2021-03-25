@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\VehiculeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=VehiculeRepository::class)
+ * @Vich\Uploadable
  */
 class Vehicule
 {
@@ -16,6 +20,33 @@ class Vehicule
      * @ORM\Column(type="integer")
      */
     private $id;
+
+
+
+
+    /**
+     * @var string|null
+     * @ORM\Column(type="string",length=255)
+     */
+    private $filename;
+
+
+    /**
+     * @var File|null
+     * @Vich\UploadableField(mapping="vehicules", fileNameProperty="filename")
+     */
+    private $imageFile;
+
+    
+      /**
+     * @ORM\Column(type="datetime")
+     * @var \Datetime|null
+     */
+    private $updated_at;
+
+
+
+
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -209,6 +240,71 @@ class Vehicule
     public function setModel(string $model): self
     {
         $this->model = $model;
+
+        return $this;
+    }
+
+    
+    /**
+     * Get the value of imageFile
+     *
+     * @return  File
+     */ 
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * Set the value of imageFile
+     *
+     * @param  File  $imageFile
+     *
+     * @return  self
+     */ 
+    public function setImageFile(File $imageFile)
+    {
+        $this->imageFile = $imageFile;
+        if($this->imageFile instanceof UploadedFile){
+            $this->updated_at = new \DateTime('now');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the value of filename
+     *
+     * @return  string|null
+     */ 
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set the value of filename
+     *
+     * @param  string|null  $filename
+     *
+     * @return  self
+     */ 
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+
+        return $this;
+    }
+
+    
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updated_at;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updated_at): self
+    {
+        $this->updated_at = $updated_at;
 
         return $this;
     }

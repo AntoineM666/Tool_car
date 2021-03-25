@@ -71,11 +71,12 @@
 
             
         </tbody>
-
-    <img style="position:absolute; left:60%; width:30%;" src="{{ asset('../asset/img/vehicule.jpg') }}" alt="">
+{# pour appeller une image avec lid en question tu peux aussi utiliser mais il ny aura pas le filtre mis avec le bundle liip {{asset('images/vehicules/')}}{{vehicule.filename}}#}
+    <img style="position:absolute; left:60%; top:5%;" src="{{ vich_uploader_asset(vehicule,'imageFile') | imagine_filter('thumb') }}" alt="">
 
     </table>
     
+   
 </div>
 </div>
 <div class="text-right"> <a href="{{ path('vehicule_index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" style="color:black; margin-right:3%;" fill="currentColor" class="bi bi-box-arrow-right hover-arrow" viewBox="0 0 16 16">
