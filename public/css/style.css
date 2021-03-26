@@ -35,6 +35,7 @@ border: 4px solid black;
 
 .border-list{
     border-bottom: 2px gray solid ;
+  
     
     
 }
@@ -48,6 +49,8 @@ text-decoration: underline;
 .nav_hover{
    font-size: 17.5px;
    font-family: Roboto;
+
+ 
 }
 
 .text-home{
