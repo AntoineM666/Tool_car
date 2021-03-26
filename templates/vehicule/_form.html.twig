@@ -27,11 +27,7 @@
             {{ form_widget(form.imatriculation, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
         </div>
 
-        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
-            {{ form_label(form.imageFile, 'Selectionner une image du vehicule') }}
-            {{ form_widget(form.imageFile, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
-        </div>
-
+        
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px;">
             {{ form_label(form.boite, 'Boîte') }}
             {{ form_widget(form.boite, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
@@ -63,11 +59,16 @@
             {{ form_label(form.carburant, 'Carburant') }}
             {{ form_widget(form.carburant, {'attr': {'class': 'form-control col-md-7 mx-auto'}}) }}
         </div>
-        
-        
-        <div class="form-group mb-2 row" style="font-weight:bolder; font-size:20px; ">
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; width:60%; margin-left:20%;">
+            {{ form_label(form.imageFile, 'Image du vehicule') }}
+            {{ form_widget(form.imageFile, {'attr': {'class': ' mx-auto'}}) }}
+        </div>
+       
+              
+        <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px; margin-top:5%;">
             {{ form_label(form.miseencirculation, 'Date mise en circulation') }}
-            {{ form_widget(form.miseencirculation, {'attr': {'class': ' date col-md-5 mx-auto'}}) }}
+            {{ form_widget(form.miseencirculation, {'attr': {'class': ' date mx-auto'}}) }}
         </div><br>
 </div>
          
@@ -78,3 +79,4 @@
     
     
 </div>
+

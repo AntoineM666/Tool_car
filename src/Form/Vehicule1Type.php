@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
+
 class Vehicule1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -32,7 +33,7 @@ class Vehicule1Type extends AbstractType
             ->add('carburant')
             ->add('boite')
             ->add('imageFile',FileType::class,[
-                'required'=> false
+                'required'=> false, 'attr' => ['class' => 'save']
             ])
         ;
     }
