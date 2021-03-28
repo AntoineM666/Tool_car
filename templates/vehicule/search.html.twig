@@ -4,19 +4,21 @@
 {% block body %}{{ parent() }}
   <body>
       
-    <div class="container-fluid">
+    <div class="container-fluid ">
     
     <h1 class="title"> Recherche </h1>
         <div class="row" style="margin-left:0.5%;">
         <div class="">
             {{ form_start(searchForm) }}
-        {{ form_row(searchForm.marque, {'label': " ", 'attr': {'placeholder': 'mot clé...'}}) }}
+        {{ form_row(searchForm.marque, {'label': " ", 'attr': {'placeholder': 'Marque du vehicule'}}) }}
         
            </div>
 
         <div > <button class="btn btn-outline-dark btn-sm mb-4 " style=" margin-left:10%;"  type="submit">chercher</button></div>
      </div>
      {{ form_end(searchForm) }}
+             
+
      
      
        
@@ -55,8 +57,9 @@
 
 
                 {% endfor %}
+               
          
 </div>
-  </body>
+  </body> <a href="{{ path('vehicule_index') }}"><button type="button" class="btn btn-warning mx-1 my-2 mb-4">Retour au stock</button></a>
     {% endblock %}
     
