@@ -25,15 +25,34 @@
    <nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-top"  style="border-bottom:black 4px solid; ">
   <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('../asset/img/logo-car.png') }}" alt="logo" class="logo-nav navbar-brand"></a>
   <ul class="navbar-nav">
-    <li class="nav-item nav_hover">
-      <a class="nav-link" href="{{ path('vehicule_index') }}">stock</a>
-    </li>
-     <li class="nav-item nav_hover">
-      <a class="nav-link" href="#">factures</a>
-    </li>
-    <li class="nav-item nav_hover">
-      <a class="nav-link nav_hover" href="{{ path('search') }}">rechercher</a>
-    </li>
+   <div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Stock
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href={{ path('vehicule_index') }}>Liste Véhicules</a>
+    <a class="dropdown-item" href="{{ path('vehicule_new') }}">Ajouter Véhicule</a>
+  </div>
+</div>
+    <div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Facturations
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Liste Factures</a>
+    <a class="dropdown-item" href="#">Créer Facture</a>
+  </div>
+</div>
+   <div class="dropdown">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Clients
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Liste Clients</a>
+    <a class="dropdown-item" href="#">Créer Client</a>
+  </div>
+</div>
+    
   </ul>
 </nav>
 
