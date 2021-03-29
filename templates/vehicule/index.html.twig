@@ -48,10 +48,32 @@
                 <td class="border-list" >{{ vehicule.note }}</td>
                 <td class="row mx-auto" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5% ;border-top:2px; margin-bottom:-0.24px;   border-bottom:2px solid gray;">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
-                     <a href="{{ path('showfacture', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">facture</button></a>
+                     <button type="button" class="btn btn-outline-success "  data-toggle="modal" data-target="#exampleModalCenter">Facture</button>
+                 
+           
                     {{ include('vehicule/_delete_form.html.twig') }}
                 </td>
-            </tr>
+            </tr> <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Créer facture ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Voulez-vous vraiment créer une facture ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <a href="{{ path('showfacture', {'id': vehicule.id}) }}"><button type="button " data-toggle="modal" data-target="{{ path('showfacture', {'id': vehicule.id}) }}"  class="btn btn-outline-primary">Créer</button></a>
+
+                </div>
+                </div>
+            </div>
+            </div>
+            
         {% else %}
             <tr>
                 <td colspan="12">Liste vide</td>
