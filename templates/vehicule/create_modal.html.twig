@@ -1,0 +1,21 @@
+<button type="button" class="btn btn-outline-success "  data-toggle="modal" data-target="#exampleModalCenter2">Facture</button>
+            <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Créer facture ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Voulez-vous vraiment créer une facture ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <a href="{{ path('showfacture', {'id': vehicule.id}) }}"><button type="button " data-toggle="modal" data-target="{{ path('showfacture', {'id': vehicule.id}) }}"  class="btn btn-outline-primary">Créer</button></a>
+
+                </div>
+                </div>
+            </div>
+            </div>
