@@ -22,8 +22,10 @@
 
 
 
-<div class="card m-4" style="width: 21em; " >
-    {% if vehicule.imageFile is defined %} <div class=" text-center"> <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"> <img class="card-img-top " style="width: 60%; margin-top:5%;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="Card image cap"></a></div><br> {% else  %} <div class=" text-center"><br><br><br><br><h3><a style="text-decoration :none; " href="{{ path('vehicule_show', {'id': vehicule.id}) }}">? ? ?</a></h3><br><br><br></div>{% endif %}
+
+<div class="card m-4 hover-trombi" style="width: 21em; " >
+<a style="color:black;" href="{{ path('vehicule_show', {'id': vehicule.id}) }}">
+    {% if vehicule.imageFile is defined %} <div class=" text-center">  <img class="card-img-top " style="width: 60%; margin-top:5%;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="pas d'image"></div><br> {% else  %} <div class=" text-center"><br><br><br><br><h3><a style="text-decoration :none; " href="{{ path('vehicule_show', {'id': vehicule.id}) }}">? ? ?</a></h3><br><br><br></div>{% endif %}
     <div class="card-body"  >
       <h5 class="card-title text-center" style="font-weight : bolder; font-size: 20px; font-family:Roboto;">{{ vehicule.marque  ~ ' ' ~ vehicule.model }} </h5>
       <h3 class="text-center"  style="font-weight : bolder; font-size: 16px; font-family:Roboto;">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</h3><br>
@@ -32,7 +34,7 @@
     </div>
     
     
-  </div>
+  </a></div>
 
 
 {% endfor %}

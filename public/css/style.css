@@ -5,7 +5,10 @@
     
 }
 
-
+.hover-trombi:hover{
+    transform: scale(1.10);
+    transition: ease all 500ms;
+}
 
 .logo-nav:hover{
     transform: scale(1.15);
@@ -15,7 +18,7 @@
 .title{
     text-align: center;
     font-weight: bold;
-    margin: 2.5%;
+    margin: 0.5%;
     text-decoration: overline;
     padding: 1%;
     font-size: 45px;

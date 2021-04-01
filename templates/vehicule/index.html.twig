@@ -31,14 +31,14 @@
                <tbody>
         {% for vehicule in vehicules %}
             <tr>
-                <td class="border-list" style="border-left:2px solid gray; ">{{ vehicule.marque }}</td>
+                <td class="border-list" style="border-left:2px solid gray;">{{ vehicule.marque }}</td>
                 <td class="border-list">{{ vehicule.model }}</td>
                 <td class="border-list">{{ vehicule.kilometrage }}</td>
                 <td class="border-list">{{ vehicule.imatriculation }}</td>
                 <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
                
                 <td class="row mx-auto" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5% ;border-top:2px; margin-bottom:-0.25px;   border-bottom:2px solid gray;">
-                    <div style="margin-left:25%;" class="row">
+                    <div style="margin-left:25%; margin-bottom:0.45px;" class="row">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                  
                     
