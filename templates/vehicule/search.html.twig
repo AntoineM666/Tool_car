@@ -30,6 +30,7 @@
                         <th>Modèle</th>
                         <th>Immatriculation</th>
                         <th>Mise En Circulation</th>
+                    
                         <th></th>
                     </tr>
                 </thead>
@@ -41,6 +42,8 @@
                 <td >{{ vehicule.model }}</td>
                 <td >{{ vehicule.imatriculation }}</td>
                 <td >{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
+                 
+            
                 <td class="row" style="margin-left:25%;">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                     

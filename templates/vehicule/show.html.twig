@@ -12,7 +12,7 @@
 
             <div class="row">
             <div>
-                <table class="table row " style="margin-left:15%;">
+                <table class="table row " style="margin-left:10%;">
                     <tbody>
            
             <tr>
@@ -23,27 +23,24 @@
                 <th class="border-list">Modèle</th>
                 <td class="border-list">{{ vehicule.model }}</td>
             </tr>
+               <tr>
+                <th class="border-list">N° série</th>
+                <td class="border-list">{{ vehicule.numero }}</td>
+            </tr>
             <tr>
                 <th class="border-list">Kilométrage</th>
                 <td class="border-list">{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></td>
             </tr>
-            <tr>
-                <th class="border-list">Année</th>
-                <td class="border-list">{{ vehicule.annee }}</td>
-            </tr>
+            
             <tr>
                 <th class="border-list">Immatriculation</th>
                 <td class="border-list">{{ vehicule.imatriculation }}</td>
             </tr>
             <tr>
-                <th class="border-list">Mise en circulation</th>
+                <th class="border-list" style="width:50%;">Mise en circulation</th>
                 <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
             </tr> 
-            <tr>
-                <td><br><a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button class="btn btn-outline-warning">Modifier</button></a></td>
-                 <td><br>{{ include('vehicule/create_modal.html.twig') }}</td>
-
-            </tr>
+       
             </tbody>
             </table>
             </div>
@@ -59,35 +56,46 @@
                 <td class="border-list">{{ vehicule.carburant }}</td>
             </tr>
              <tr>
-                <th class="border-list">Boite</th>
+                <th class="border-list">Boîte</th>
                 <td class="border-list">{{ vehicule.boite }}</td>
             </tr>
             <tr>
-                <th class="border-list">Puissance CV</th>
+                <th class="border-list">Puissance</th>
                 <td class="border-list">{{ vehicule.puissance }}&nbsp;<span style="font-weight:bold;">Cv<span></td>
             </tr>
             <tr>
-                <th class="border-list">Note</th>
-                <td class="border-list">{{ vehicule.note }}</td>
+                <th class="border-list">Annonce</th>
+                  {% if vehicule.annonce == null %}
+                    <td class="border-list"><p>vide</p></td>
+                {% else %}
+               <td class="border-list"><a href="{{ vehicule.annonce }}" target="_blank" >Lien</a></td>
+                {% endif %}
             </tr>
+             
 
             
         </tbody>
-        
+       
     </table>
+    
     
    
 </div><div class="text-right">
-{# pour appeller une image avec lid en question tu peux aussi utiliser mais il ny aura pas le filtre mis avec le bundle liip {{asset('images/vehicules/')}}{{vehicule.filename}}#}
-    <img class="img-fluid" style=" margin-left:45%;" src="{{ vich_uploader_asset(vehicule,'imageFile') | imagine_filter('thumb') }}" alt="">
+{# pour appeller une image avec lid en question tu peux aussi utiliser mais il ny aura pas le filtre mis avec le bundle liip #}
+    <img class="img-fluid" style=" position:absolute; left:57%; width:35%;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="">
 </div>
 </div>
 
+<div class="text-left" style="margin-left:3%;">
+ <p style=" font-family:Roboto; font-size:14px; color:black;"><span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Option : <br> </span> {{ vehicule.options }}</p><br>
+ <p style=" font-family:Roboto; font-size:14px; color:black;" > <span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Révision / Entretien : <br> </span>  {{ vehicule.revision }}</p>
+</div>
 <div class="text-right"> <a href="{{ path('vehicule_index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" style="color:black; margin-right:3%;" fill="currentColor" class="bi bi-box-arrow-right hover-arrow" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
 </svg></a></div>
-
+<a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button class="btn btn-warning">Modifier</button></a></td>
+{{ include('vehicule/create_modal.html.twig') }}
 
     {{ include('vehicule/_delete_form.html.twig') }}
 </div>

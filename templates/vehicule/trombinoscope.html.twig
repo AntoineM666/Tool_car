@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stock des Véhicules{% endblock %}
+
+{% block body %} {{ parent() }}
+<body>
+    
+  <div class="" >
+        <div class="card-body">
+  
+
+            <h3 class="card-title text-center title">Stock des véhicules</h3><br>
+<div style="margin-left:1.5%; margin-bottom:-2%;">
+        <a href="{{ path('vehicule_new') }}"><button type="button" class="btn btn-primary mx-1 my-2 mb-4">Ajouter un nouveau véhicule</button></a>
+        <a href="{{ path('search') }}"><button type="button" class="btn btn-success mx-1 my-2 mb-4">rechercher</button></a>
+</div>
+     <div class="row" style="margin-left:91%;"><a href="{{ path('vehicule_index') }}"><p class="button-list">Liste </p></a><p>&nbsp; - &nbsp;</p><a href="{{ path('trombinoscope') }}"><p class="button-list"> Image</p></a></div>
+</div></div>
+<div style="border-bottom: gray solid 4px;"></div>
+<div class="row col-12 " style="padding-left:5%;"  > 
+{% for vehicule in vehicules %}
+
+
+
+<div class="card m-4" style="width: 21em; " >
+    {% if vehicule.imageFile is defined %} <div class=" text-center"> <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"> <img class="card-img-top " style="width: 60%; margin-top:5%;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="Card image cap"></a></div><br> {% else  %} <div class=" text-center"><br><br><br><br><h3><a style="text-decoration :none; " href="{{ path('vehicule_show', {'id': vehicule.id}) }}">? ? ?</a></h3><br><br><br></div>{% endif %}
+    <div class="card-body"  >
+      <h5 class="card-title text-center" style="font-weight : bolder; font-size: 20px; font-family:Roboto;">{{ vehicule.marque  ~ ' ' ~ vehicule.model }} </h5>
+      <h3 class="text-center"  style="font-weight : bolder; font-size: 16px; font-family:Roboto;">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</h3><br>
+      <h2 class="text-center"  style="font-weight : bolder; font-size: 14px; font-family:Roboto;">{{ vehicule.kilometrage }} <span style="font-weight : bolder; font-size: 15px;">Km</span>  </h2>
+      <h2 class="text-center"  style="font-weight : bolder; font-size: 14px; font-family:Roboto;">Immat : &nbsp;{{ vehicule.imatriculation }}   </h2>
+    </div>
+    
+    
+  </div>
+
+
+{% endfor %}
+
+
+</div>
+</body>
+{% endblock %}

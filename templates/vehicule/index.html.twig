@@ -12,7 +12,7 @@
             <h3 class="card-title text-center title">Stock des véhicules</h3><br>
  <a href="{{ path('vehicule_new') }}"><button type="button" class="btn btn-primary mx-1 my-2 mb-4">Ajouter un nouveau véhicule</button></a>
         <a href="{{ path('search') }}"><button type="button" class="btn btn-success mx-1 my-2 mb-4">rechercher</button></a>
-     
+     <div class="row" style="margin-left:93%;"><a href="{{ path('vehicule_index') }}"><p class="button-list">Liste </p></a><p>&nbsp; - &nbsp;</p><a href="{{ path('trombinoscope') }}"><p class="button-list"> Image</p></a></div>
     <div class="table">
             <table class="table table-striped text-center">
                 <thead class="thead-dark">
@@ -20,14 +20,10 @@
                         <th >Marque</th>
                         <th>Modèle</th>
                         <th>Km</th>
-                        <th>Année</th>
                         <th>Immatriculation</th>
                         <th>Mise En Circulation</th>
-                        <th>Boite Vitesse</th>
-                        <th>Carburant</th>
-                        <th>Nbre Porte</th>
-                        <th>Puissance CV</th>
-                        <th>Note</th>
+                    
+                        
                         <th></th>
                     </tr>
                 </thead>
@@ -38,20 +34,17 @@
                 <td class="border-list" style="border-left:2px solid gray; ">{{ vehicule.marque }}</td>
                 <td class="border-list">{{ vehicule.model }}</td>
                 <td class="border-list">{{ vehicule.kilometrage }}</td>
-                <td class="border-list">{{ vehicule.annee }}</td>
                 <td class="border-list">{{ vehicule.imatriculation }}</td>
                 <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
-                <td class="border-list">{{ vehicule.boite }}</td>
-                <td class="border-list">{{ vehicule.carburant }}</td>
-                <td class="border-list">{{ vehicule.porte }}</td>
-                <td class="border-list">{{ vehicule.puissance }}</td>
-                <td class="border-list" >{{ vehicule.note }}</td>
-                <td class="row mx-auto" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5% ;border-top:2px; margin-bottom:-0.24px;   border-bottom:2px solid gray;">
+               
+                <td class="row mx-auto" style="border-left:2px gray solid; margin-left:0; border-right:2px solid gray; margin-right:0.5% ;border-top:2px; margin-bottom:-0.25px;   border-bottom:2px solid gray;">
+                    <div style="margin-left:25%;" class="row">
                     <a href="{{ path('vehicule_show', {'id': vehicule.id}) }}"><button type="button" class="btn btn-outline-success ">Voir</button></a>
                  
-                    {{ include('vehicule/create_modal.html.twig') }}
+                    
            
                     {{ include('vehicule/_delete_form.html.twig') }}
+                    </div>
                 </td>
             </tr> 
             

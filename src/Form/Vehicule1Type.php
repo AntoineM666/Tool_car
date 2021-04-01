@@ -10,30 +10,52 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class Vehicule1Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('marque')
-            ->add('model')
-            ->add('kilometrage')
-            ->add('annee')
-            ->add('imatriculation')
+            ->add('marque', TextType::class,[
+                'required'=> true])
+            ->add('model', TextType::class,[
+                'required'=> true])
+            ->add('kilometrage', TextType::class,[
+                'required'=> true])
+            ->add('options', TextareaType::class,[
+                'required'=> false])
+            ->add('revision', TextareaType::class,[
+                'required'=> false])
+            ->add('annonce', TextType::class,[
+                'required'=> false])  
+            ->add('numero', TextType::class,[
+                'required'=> false])
+            ->add('imatriculation', TextType::class,[
+                'required'=> false])
             ->add('miseencirculation', DateType::class,[ 'required' => true,'years' =>range(2025, 1980), 'format' => 'dd MM yyyy'])
-            ->add('porte', ChoiceType::class, [
+            ->add('porte', ChoiceType::class, ['required'=> false,
                 'choices'  => [
                     '3' => '3',
                     '5' => '5'
                 ]])
-            ->add('puissance')
-            ->add('note', TextareaType::class)
-            ->add('carburant')
-            ->add('boite')
+            ->add('puissance', TextType::class,[
+                'required'=> false])
+        
+            ->add('carburant', ChoiceType::class, ['required'=> false,
+                'choices'  => [
+                    'gazole' => 'gazole',
+                    'essence' => 'essence',
+                    'hybride' => 'hybride',
+                    'electrique' => 'electrique'
+                ]])
+            ->add('boite', ChoiceType::class, ['required'=> false,
+                'choices'  => [
+                    'manuelle' => 'manuelle',
+                    'auto' => 'auto'
+                ]])
             ->add('imageFile',FileType::class,[
-                'required'=> false, 'attr' => ['class' => 'save']
+                'required'=> false, 
             ])
         ;
     }

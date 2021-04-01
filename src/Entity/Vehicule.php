@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @ORM\Entity(repositoryClass=VehiculeRepository::class)
  * @Vich\Uploadable
@@ -26,7 +26,7 @@ class Vehicule
 
     /**
      * @var string|null
-     * @ORM\Column(type="string",length=255)
+     * @ORM\Column(type="string",length=255, nullable=true)
      */
     private $filename;
 
@@ -39,7 +39,7 @@ class Vehicule
 
     
       /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var \Datetime|null
      */
     private $updated_at;
@@ -59,39 +59,29 @@ class Vehicule
     private $kilometrage;
 
     /**
-     * @ORM\ManyToOne(targetEntity=carburant::class, inversedBy="annee")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $carburant;
 
+  
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $annee;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imatriculation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $porte;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $puissance;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $note;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Boiteav::class, inversedBy="vehicules")
-     * @ORM\JoinColumn(nullable=false)
+    
+     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $boite;
 
@@ -104,6 +94,39 @@ class Vehicule
      * @ORM\Column(type="string", length=255)
      */
     private $model;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $created_at;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $options;
+
+
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $revision;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $numero;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $annonce;
+
+    public function __construct()
+    {
+        $this->vehicule = new ArrayCollection();
+        $this->created_at = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+    }
 
     public function getId(): ?int
     {
@@ -134,29 +157,20 @@ class Vehicule
         return $this;
     }
 
-    public function getCarburant(): ?carburant
+    public function getCarburant(): ?string
     {
         return $this->carburant;
     }
 
-    public function setCarburant(?carburant $carburant): self
+    public function setCarburant(?string $carburant): self
     {
         $this->carburant = $carburant;
 
         return $this;
     }
 
-    public function getAnnee(): ?int
-    {
-        return $this->annee;
-    }
 
-    public function setAnnee(int $annee): self
-    {
-        $this->annee = $annee;
-
-        return $this;
-    }
+   
 
     public function getImatriculation(): ?string
     {
@@ -196,24 +210,14 @@ class Vehicule
         return $this;
     }
 
-    public function getNote(): ?string
-    {
-        return $this->note;
-    }
+  
 
-    public function setNote(string $note): self
-    {
-        $this->note = $note;
-
-        return $this;
-    }
-
-    public function getBoite(): ?Boiteav
+    public function getBoite(): ?string
     {
         return $this->boite;
     }
 
-    public function setBoite(?Boiteav $boite): self
+    public function setBoite(?string $boite): self
     {
         $this->boite = $boite;
 
@@ -305,6 +309,68 @@ class Vehicule
     public function setUpdatedAt(\DateTimeInterface $updated_at): self
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $created_at): self
+    {
+        $this->created_at = $created_at;
+
+        return $this;
+    }
+
+    public function getOptions(): ?string
+    {
+        return $this->options;
+    }
+
+    public function setOptions(?string $options): self
+    {
+        $this->options = $options;
+
+        return $this;
+    }
+
+ 
+
+    public function getRevision(): ?string
+    {
+        return $this->revision;
+    }
+
+    public function setRevision(?string $revision): self
+    {
+        $this->revision = $revision;
+
+        return $this;
+    }
+
+    public function getNumero(): ?string
+    {
+        return $this->numero;
+    }
+
+    public function setNumero(?string $numero): self
+    {
+        $this->numero = $numero;
+
+        return $this;
+    }
+
+    public function getAnnonce(): ?string
+    {
+        return $this->annonce;
+    }
+
+    public function setAnnonce(?string $annonce): self
+    {
+        $this->annonce = $annonce;
 
         return $this;
     }

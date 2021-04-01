@@ -18,6 +18,12 @@ class VehiculeRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Vehicule::class);
     }
+
+    public function findAll()
+    {
+        return $this->findBy(array(), array('created_at' => 'DESC'));
+    }
+
     
     public function search($marque) {
         return $this->createQueryBuilder('vehicule')

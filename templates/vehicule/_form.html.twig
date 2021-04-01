@@ -1,75 +1,86 @@
 
     {{ form_start(form)}}<div class="container-fluid text-center">
-<div class="row">
+<div class="row" >
 <div class="col">
         <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px;">
             {{ form_label(form.marque, 'Marque') }}
-            {{ form_widget(form.marque, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.marque, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
 
          <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px;">
             {{ form_label(form.model, 'Modèle') }}
-            {{ form_widget(form.model, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.model, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
 
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
             {{ form_label(form.kilometrage, 'Km') }}
-            {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.kilometrage, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
 
-        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
-            {{ form_label(form.annee, 'Année') }}
-            {{ form_widget(form.annee, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
-        </div>
 
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
             {{ form_label(form.imatriculation, 'Immatriculation') }}
-            {{ form_widget(form.imatriculation, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.imatriculation, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
 
+         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.numero, 'Numéro de série') }}
+            {{ form_widget(form.numero, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
+        </div>
+        
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px;">
+            {{ form_label(form.annonce, 'Lien Annonce') }}
+            {{ form_widget(form.annonce, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
+        </div>
         
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px;">
             {{ form_label(form.boite, 'Boîte') }}
-            {{ form_widget(form.boite, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.boite, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
+        </div>
+
+        <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px; margin-top:5%;">
+            {{ form_label(form.miseencirculation, 'Date mise en circulation') }}
+            {{ form_widget(form.miseencirculation, {'attr': {'class': ' date mx-auto'}}) }}
         </div>
         
 </div>
-<div>
-<img style="width:100%;" src="{{ asset('../asset/img/LOGO-CAR-TOOL-removebg.png') }}" alt="">
+<div style="margin:7%;">
+<img style="width:25%; position:absolute; left:37.5%; top:40%; " src="{{ asset('../asset/img/logo-gm-auto-removebg.png') }}" alt="">
 </div>
-<div class="col">
+<div class="col" >
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
             {{ form_label(form.porte, 'Nbre Porte') }}
-            {{ form_widget(form.porte, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.porte, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
 
         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px;">
             {{ form_label(form.puissance, 'Puissance') }}
-            {{ form_widget(form.puissance, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+            {{ form_widget(form.puissance, {'attr': {'class': 'form-control col-md-5 mx-auto '}}) }}
         </div>
         
-        
-        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
-            {{ form_label(form.note, 'Note') }}
-            {{ form_widget(form.note, {'attr': {'class': 'form-control col-md-7 mx-auto '}}) }}
+         <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.options, 'Option') }}
+            {{ form_widget(form.options, {'attr': {'class': 'form-control col-md-5 mx-auto size-form'}}) }}
+        </div>
+
+       <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.revision, 'Révision / entretien') }}
+            {{ form_widget(form.revision, {'attr': {'class': 'form-control col-md-5 mx-auto size-form'}}) }}
         </div>
 
         
        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
             {{ form_label(form.carburant, 'Carburant') }}
-            {{ form_widget(form.carburant, {'attr': {'class': 'form-control col-md-7 mx-auto'}}) }}
+            {{ form_widget(form.carburant, {'attr': {'class': 'form-control col-md-5 mx-auto'}}) }}
         </div>
 
-        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; width:60%; margin-left:20%;">
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; width:60%; margin-left:21.5%;">
             {{ form_label(form.imageFile, 'Image du vehicule') }}
-            {{ form_widget(form.imageFile, {'attr': {'class': ' mx-auto'}}) }}
+            {{ form_widget(form.imageFile, {'attr': {'class': ' mx-auto '}}) }}
         </div>
        
               
-        <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px; margin-top:5%;">
-            {{ form_label(form.miseencirculation, 'Date mise en circulation') }}
-            {{ form_widget(form.miseencirculation, {'attr': {'class': ' date mx-auto'}}) }}
-        </div><br>
+        <br>
 </div>
          
 </div>

@@ -85,7 +85,7 @@ class VehiculeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            
             return $this->redirectToRoute('vehicule_index');
         }
 
@@ -186,6 +186,18 @@ class VehiculeController extends AbstractController
         }
 
 
+
+    }
+
+    /**
+     *
+     * @Route("/vehicule/trombinoscope", name="trombinoscope")
+     */
+    public function trombinoscope(VehiculeRepository $repo): Response
+    {
+        return $this->render('vehicule/trombinoscope.html.twig',[
+           'vehicules' => $repo->findALL() 
+        ]);
 
     }
   
