@@ -54,28 +54,29 @@ Tél : 06 22 22 25 25
 
 <div style="border-top:3px solid black; border-left:3px solid black; border-right:3px solid black;  border-bottom:3px solid black;padding:2%;">
    
-   <div style="display:flex; flex-direction:row; margin-bottom:-42.5%;">
+   <div style="display:flex; flex-direction:row; margin-bottom:-45%;">
    <div  style="margin-left:2.5%;">
    
 
-        <p style="font-size:14px;" ><span style="font-weight:bolder;">Marque :</span> {{ vehicule.marque }}</p>
-        <p style="font-size:14px;" ><span style="font-weight:bolder;">Modèle : </span>{{ vehicule.model }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Kilométrage : </span>{{ vehicule.kilometrage }}<span style="font-weight:bolder;">KM</span></p>
-       <p style="font-size:14px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Immatricualtion : </span>{{ vehicule.imatriculation }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Mise en circulation : </span>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</p>
-     <p style="font-size:14px;" ><span style="font-weight:bolder;">Option : </span>{{ vehicule.options }}</p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Marque :</span> {{ vehicule.marque }}</p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Modèle : </span>{{ vehicule.model }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Kilométrage : </span>{{ vehicule.kilometrage }}<span style="font-weight:bolder;">KM</span></p>
+       <p style="font-size:12px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Ancienne Immatricualtion : </span>{{ vehicule.imatriculation }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Nouvelle Immatricualtion : </span>{{ vehicule.nouvelleimat }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Mise en circulation : </span>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</p>
+     <p style="font-size:12px;" ><span style="font-weight:bolder;">Option : </span>{{ vehicule.options }}</p>
 
    </div>
  
    <div style=" margin-left:56%;">
 
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Porte : </span>{{ vehicule.porte }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Carburant : </span>{{ vehicule.carburant }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Boîte : </span>{{ vehicule.boite }}</p>
-        <p style="font-size:14px;"><span style="font-weight:bolder;">Puissance : </span>{{ vehicule.puissance }}<span style="font-weight:bolder;">CV</span></p>
-        
-        <p style="font-size:14px;" ><span style="font-weight:bolder;">Révision : </span>{{ vehicule.revision }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Porte : </span>{{ vehicule.porte }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Carburant : </span>{{ vehicule.carburant }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Boîte : </span>{{ vehicule.boite }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Puissance : </span>{{ vehicule.puissance }}<span style="font-weight:bolder;">CV</span></p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Garantie : </span>{{ vehicule.garantie }}</p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Révision : </span>{{ vehicule.revision }}</p>
         
      
    </div>
@@ -87,7 +88,7 @@ Tél : 06 22 22 25 25
 
 <div style="text-align:right; margin-bottom:-3%;">
 <p style="font-size:15px; color:black; font-weight:bolder;">Prix HT :  €</p>
-<p style="font-size:15px; color:black; font-weight:bolder;">Prix TTC : 2800 €</p>
+<p style="font-size:15px; color:black; font-weight:bolder;">Prix TTC : {{ vehicule.prixvente }} €</p>
 </div>
 
 <div style="text-align:left;">

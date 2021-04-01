@@ -33,8 +33,12 @@
             </tr>
             
             <tr>
-                <th class="border-list">Immatriculation</th>
+                <th class="border-list">Ancienne Immatriculation</th>
                 <td class="border-list">{{ vehicule.imatriculation }}</td>
+            </tr>
+              <tr>
+                <th class="border-list">Nouvelle Immatriculation</th>
+                <td class="border-list">{{ vehicule.nouvelleimat }}</td>
             </tr>
             <tr>
                 <th class="border-list" style="width:50%;">Mise en circulation</th>
@@ -71,7 +75,14 @@
                <td class="border-list"><a href="{{ vehicule.annonce }}" target="_blank" >Lien</a></td>
                 {% endif %}
             </tr>
-             
+            <tr>
+                <th class="border-list">Prix d'achat</th>
+                <td class="border-list">{{ vehicule.prixachat }}<span style="font-weight:bold">€</span></td>
+            </tr> 
+            <tr>
+                <th class="border-list">Prix de vente</th>
+                <td class="border-list">{{ vehicule.prixvente }}<span style="font-weight:bold">€</span></td>
+            </tr>
 
             
         </tbody>
@@ -87,6 +98,7 @@
 </div>
 
 <div class="text-left" style="margin-left:2%;">
+ <p style=" font-family:Roboto; font-size:14px; color:black;"><span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Garantie : <br> </span> {{ vehicule.garantie }}</p><br>
  <p style=" font-family:Roboto; font-size:14px; color:black;"><span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Option : <br> </span> {{ vehicule.options }}</p><br>
  <p style=" font-family:Roboto; font-size:14px; color:black;" > <span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Révision / Entretien : <br> </span>  {{ vehicule.revision }}</p>
 </div>

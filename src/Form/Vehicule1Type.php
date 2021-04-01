@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -21,7 +22,7 @@ class Vehicule1Type extends AbstractType
                 'required'=> true])
             ->add('model', TextType::class,[
                 'required'=> true])
-            ->add('kilometrage', TextType::class,[
+            ->add('kilometrage', IntegerType::class,[
                 'required'=> true])
             ->add('options', TextareaType::class,[
                 'required'=> false])
@@ -32,6 +33,14 @@ class Vehicule1Type extends AbstractType
             ->add('numero', TextType::class,[
                 'required'=> false])
             ->add('imatriculation', TextType::class,[
+                'required'=> false])
+            ->add('nouvelleimat', TextType::class,[
+                'required'=> false])
+            ->add('prixachat', IntegerType::class,[
+                    'required'=> false])     
+            ->add('prixvente', IntegerType::class,[
+                'required'=> false])
+            ->add('garantie', TextareaType::class,[
                 'required'=> false])
             ->add('miseencirculation', DateType::class,[ 'required' => true,'years' =>range(2025, 1980), 'format' => 'dd MM yyyy'])
             ->add('porte', ChoiceType::class, ['required'=> false,

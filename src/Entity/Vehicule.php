@@ -122,6 +122,26 @@ class Vehicule
      */
     private $annonce;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $nouvelleimat;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $prixachat;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $prixvente;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $garantie;
+
     public function __construct()
     {
         $this->vehicule = new ArrayCollection();
@@ -371,6 +391,54 @@ class Vehicule
     public function setAnnonce(?string $annonce): self
     {
         $this->annonce = $annonce;
+
+        return $this;
+    }
+
+    public function getNouvelleimat(): ?string
+    {
+        return $this->nouvelleimat;
+    }
+
+    public function setNouvelleimat(?string $nouvelleimat): self
+    {
+        $this->nouvelleimat = $nouvelleimat;
+
+        return $this;
+    }
+
+    public function getPrixachat(): ?int
+    {
+        return $this->prixachat;
+    }
+
+    public function setPrixachat(?int $prixachat): self
+    {
+        $this->prixachat = $prixachat;
+
+        return $this;
+    }
+
+    public function getPrixvente(): ?int
+    {
+        return $this->prixvente;
+    }
+
+    public function setPrixvente(?int $prixvente): self
+    {
+        $this->prixvente = $prixvente;
+
+        return $this;
+    }
+
+    public function getGarantie(): ?string
+    {
+        return $this->garantie;
+    }
+
+    public function setGarantie(?string $garantie): self
+    {
+        $this->garantie = $garantie;
 
         return $this;
     }
