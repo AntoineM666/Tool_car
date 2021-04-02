@@ -73,11 +73,10 @@ font-weight: 500;
 
 .size-form{
     font-size: 12px;
-    height: 120px;
+    height: 150px;
+   width: 300px;
 }
 
-.contenu {
-	width:600px;
-	height:400px;
-	background-color:#FFCC00;
-	}
+.size-form2{
+    width:300px;
+}
