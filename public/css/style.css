@@ -75,8 +75,16 @@ font-weight: 500;
     font-size: 12px;
     height: 150px;
    width: 300px;
+   border: none;
+   background-color: transparent;
+   border-bottom: 3px solid white;
+   
 }
 
 .size-form2{
     width:300px;
+    border: none;
+    border-bottom: 3px solid white;
+    
+    background-color: transparent;
 }
