@@ -48,7 +48,7 @@ class Vehicule1Type extends AbstractType
                     '3' => '3',
                     '5' => '5'
                 ]])
-            ->add('puissance', TextType::class,[
+            ->add('puissance', IntegerType::class,[
                 'required'=> false])
         
             ->add('carburant', ChoiceType::class, ['required'=> false,

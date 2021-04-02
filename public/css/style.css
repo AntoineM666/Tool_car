@@ -75,3 +75,9 @@ font-weight: 500;
     font-size: 12px;
     height: 120px;
 }
+
+.contenu {
+	width:600px;
+	height:400px;
+	background-color:#FFCC00;
+	}

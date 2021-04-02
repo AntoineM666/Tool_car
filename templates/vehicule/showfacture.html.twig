@@ -9,7 +9,7 @@
 <img src="{{ absolute_url(asset('images/vehicules/logo-gm-auto-removebg.png')) }}" style="width:40%; margin-top:-2%; margin-bottom:-2%;" alt="">
 
 </div>
-<div class="container-fluid" >
+<div class="container-fluid"  >
 <div style=" border-top:3px solid black; "></div>
 
 
@@ -32,7 +32,7 @@ neuf et occasion</p>
 </div>
 </div>
 <div style="border-top:3px solid black; margin-top:6%;"></div>
-<div style="text-align:center; font-weight: bolder; color:black; font-size:30px;  margin-bottom:5%;"><p>Facture</p></div>
+<div style="text-align:center; font-weight: bolder; color:black; font-size:30px;  margin-bottom:2.5%;"><p>Facture</p></div>
 
 <div style="text-align:left;">
 <p style="color:gray; font-size:17px;">N° facture : 145 <br>
@@ -52,20 +52,20 @@ Tél : 06 22 22 25 25
 
 </div>
 
-<div style="border-top:3px solid black; border-left:3px solid black; border-right:3px solid black;  border-bottom:3px solid black;padding:2%;">
+<div style="border-top:3px solid black; border-left:3px solid black; border-right:3px solid black;  border-bottom:3px solid black;padding:1.2%; margin-left:-5%; margin-right:-5%; ">
    
-   <div style="display:flex; flex-direction:row; margin-bottom:-45%;">
+   <div style="display:flex; flex-direction:row; height:360px;">
    <div  style="margin-left:2.5%;">
    
 
         <p style="font-size:12px;" ><span style="font-weight:bolder;">Marque :</span> {{ vehicule.marque }}</p>
         <p style="font-size:12px;" ><span style="font-weight:bolder;">Modèle : </span>{{ vehicule.model }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Kilométrage : </span>{{ vehicule.kilometrage }}<span style="font-weight:bolder;">KM</span></p>
-       <p style="font-size:12px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Ancienne Immatricualtion : </span>{{ vehicule.imatriculation }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Nouvelle Immatricualtion : </span>{{ vehicule.nouvelleimat }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Mise en circulation : </span>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</p>
-     <p style="font-size:12px;" ><span style="font-weight:bolder;">Option : </span>{{ vehicule.options }}</p>
+        <p style="font-size:12px; overflow: hidden; width:300px;"><span style="font-weight:bolder; ">Option : </span>{{ vehicule.options }}</p>
 
    </div>
  
@@ -75,8 +75,8 @@ Tél : 06 22 22 25 25
         <p style="font-size:12px;"><span style="font-weight:bolder;">Carburant : </span>{{ vehicule.carburant }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Boîte : </span>{{ vehicule.boite }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Puissance : </span>{{ vehicule.puissance }}<span style="font-weight:bolder;">CV</span></p>
-        <p style="font-size:12px;" ><span style="font-weight:bolder;">Garantie : </span>{{ vehicule.garantie }}</p>
-        <p style="font-size:12px;" ><span style="font-weight:bolder;">Révision : </span>{{ vehicule.revision }}</p>
+        <p style="font-size:12px;overflow: hidden; width:300px;" ><span style="font-weight:bolder; ">Garantie : </span>{{ vehicule.garantie }}</p>
+        <p style="font-size:12px;overflow: hidden;width:300px;" ><span style="font-weight:bolder; ">Révision : </span>{{ vehicule.revision }}</p>
         
      
    </div>
@@ -93,7 +93,7 @@ Tél : 06 22 22 25 25
 
 <div style="text-align:left;">
 <p style="font-size:11px; color:gray; font-weight:bolder;">T.V.A au régime de la marge bénéficiaire article 279E / 297A du GGI</p>
-<p style="font-size:15px; color:gray;">Lu et approuvé + signature :</p>
+<p style="font-size:15px; color:gray; margin-bottom:-3%;">Lu et approuvé + signature :</p>
 </div>
 
 </div>
