@@ -78,6 +78,8 @@ font-weight: 500;
    border: none;
    background-color: transparent;
    border-bottom: 3px solid white;
+   color:white;
+   font-weight: bold;
    
 }
 
@@ -85,7 +87,8 @@ font-weight: 500;
     width:300px;
     border: none;
     border-bottom: 3px solid white;
-    
+    color:white;
+    font-weight: bold;
     background-color: transparent;
 }
 
