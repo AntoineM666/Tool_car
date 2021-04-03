@@ -88,3 +88,12 @@ font-weight: 500;
     
     background-color: transparent;
 }
+
+ .table th, .table td { border-top: none !important; } 
+
+ .text-card{
+     font-size:16px;
+     font-weight: bolder;
+     color: black;
+     font-family: Roboto;
+ }

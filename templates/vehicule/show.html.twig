@@ -3,107 +3,80 @@
 {% block title %}Véhicule{% endblock %}
 
 {% block body %} {{ parent() }}
-<div class="card mx-auto" style="width:80%; border:2px gray solid; margin-bottom:5%; background-color:#E9ECEF;">
+<div class="card mx-auto" style="width:80%; border:2px gray solid; margin-bottom:5%;  background-color:#ada8a8;">
         <div class="card-body">
 
             <h3 class="card-title text-center">{{ vehicule.marque | upper }} - {{ vehicule.model | upper }}</h3>
             <br/> 
             <div class="card-text">
 
-            <div class="row">
-            <div>
-                <table class="table row " style="margin-left:10%;">
-                    <tbody>
+            <div class="row" style="border:2px solid black; width:600px; height:300px; margin-left:2%; margin-bottom:5%; padding:1%;  background-color:#6b6767; box-shadow:15px 15px 15px black;">
+            <div class="col" style="">
            
-            <tr>
-                <th class="border-list" style="border-top:2px gray solid">Marque</th>
-                <td class="border-list" style="border-top:2px gray solid">{{ vehicule.marque }}</td>
-            </tr>
-             <tr>
-                <th class="border-list">Modèle</th>
-                <td class="border-list">{{ vehicule.model }}</td>
-            </tr>
-               <tr>
-                <th class="border-list">N° série</th>
-                <td class="border-list">{{ vehicule.numero }}</td>
-            </tr>
-            <tr>
-                <th class="border-list">Kilométrage</th>
-                <td class="border-list">{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></td>
-            </tr>
+                <p class="text-card" style="">Marque : &nbsp;<span style="color:white;">{{ vehicule.marque }}</span></p>
+                <p class="" style=""></p>
             
-            <tr>
-                <th class="border-list">Ancienne Immatriculation</th>
-                <td class="border-list">{{ vehicule.imatriculation }}</td>
-            </tr>
-              <tr>
-                <th class="border-list">Nouvelle Immatriculation</th>
-                <td class="border-list">{{ vehicule.nouvelleimat }}</td>
-            </tr>
-            <tr>
-                <th class="border-list" style="width:50%;">Mise en circulation</th>
-                <td class="border-list">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</td>
-            </tr> 
-       
-            </tbody>
-            </table>
+                <p class="text-card">Modèle : &nbsp;<span style="color:white;">{{ vehicule.model }}</span></p>
+                <p class=""></p>
+           
+                <p class="text-card">N° série : &nbsp;<span style="color:white;">{{ vehicule.numero }}</span></p>
+                <p class=""></p>
+            
+                <p class="text-card">Kilométrage : &nbsp;<span style="color:white;">{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></span></p>
+                <p class=""></p>
+           
+                <p class="text-card">Ancienne Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.imatriculation }}</span></p>
+                <p class=""></p>
+         
+                <p class="text-card">Nouvelle Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.nouvelleimat }}</span></p>
+                <p class=""></p>
+           
+                <p class="text-card" style="">Mise en circulation : &nbsp;<span style="color:white;">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</span></p>
+                <p class=""></p>
+           
             </div>
-            <div style="margin-left:7%; ">
-            <table class="table row " style="margin-left:15%;">
-            <tbody>
-            <tr>
-                <th class="border-list" style="border-top:2px gray solid">Porte</th>
-                <td class="border-list" style="border-top:2px gray solid">{{ vehicule.porte }}</td>
-            </tr>
-             <tr>
-                <th class="border-list">Carburant</th>
-                <td class="border-list">{{ vehicule.carburant }}</td>
-            </tr>
-             <tr>
-                <th class="border-list">Boîte</th>
-                <td class="border-list">{{ vehicule.boite }}</td>
-            </tr>
-            <tr>
-                <th class="border-list">Puissance</th>
-                <td class="border-list">{{ vehicule.puissance }}&nbsp;<span style="font-weight:bold;">Cv<span></td>
-            </tr>
-            <tr>
-                <th class="border-list">Annonce</th>
-                  {% if vehicule.annonce == null %}
-                    <td class="border-list"><p>vide</p></td>
-                {% else %}
-               <td class="border-list"><a href="{{ vehicule.annonce }}" target="_blank" >Lien</a></td>
-                {% endif %}
-            </tr>
-            <tr>
-                <th class="border-list">Prix d'achat</th>
-                <td class="border-list">{{ vehicule.prixachat }}<span style="font-weight:bold">€</span></td>
-            </tr> 
-            <tr>
-                <th class="border-list">Prix de vente</th>
-                <td class="border-list">{{ vehicule.prixvente }}<span style="font-weight:bold">€</span></td>
-            </tr>
-
+            <div  class="col" style="margin-right:-15%;">
             
-        </tbody>
-       
-    </table>
-    
-    
-   
-</div><div class="text-right">
-{# pour appeller une image avec lid en question tu peux aussi utiliser mais il ny aura pas le filtre mis avec le bundle liip #}
-    <img class="img-fluid" style=" position:absolute; left:57%; width:35%;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="">
+                <p class="text-card" style="">Porte : &nbsp;<span style="color:white;">{{ vehicule.porte }}</span></p>
+                <p class="" style=""></p>
+           
+                <p class="text-card">Carburant : &nbsp;<span style="color:white;">{{ vehicule.carburant }}</span></p>
+                <p class=""></p>
+            
+                <p class="text-card">Boîte : &nbsp;<span style="color:white;">{{ vehicule.boite }}</span></p>
+                <p class=""></p>
+            
+                <p class="text-card">Puissance : &nbsp;<span style="color:white;">{{ vehicule.puissance }}&nbsp;<span style="font-weight:bold;">Cv<span></span></p>
+                <p class=""></p>
+            {% if vehicule.annonce is null %}
+                 <p class="text-card">Annonce : &nbsp;<span style="color:white;"> vide</span></p>
+                   {% else %}
+                    
+              <p class="text-card">Annonce : &nbsp;<span style="color:white;"><a href="{{ vehicule.annonce }}" target="_blank" >Lien</a></span></p>
+                     {% endif %}
+            
+                <p class="text-card">Prix d'achat :&nbsp;<span style="color:white;">{{ vehicule.prixachat }}<span style="font-weight:bold">€</span></span></p>
+                <p class=""></p>
+           
+                <p class="text-card">Prix de vente : &nbsp;<span style="color:white;">{{ vehicule.prixvente }}<span style="font-weight:bold">€</span></span></p>
+                <p class=""></p>
+    </div>        
+
 </div>
+   
+<div class="text-right">
+{# pour appeller une image avec lid en question tu peux aussi utiliser mais il ny aura pas le filtre mis avec le bundle liip #}
+    <img class="img-fluid" style=" position:absolute; left:57%; top:9%; width:35%; border:2px solid gray;" src="{{asset('images/vehicules/')}}{{vehicule.filename}}" alt="">
 </div>
 
-<div class="text-left" style="margin-left:2%;">
- <p style=" font-family:Roboto; font-size:14px; color:black;"><span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Garantie : <br> </span> {{ vehicule.garantie }}</p><br>
- <p style=" font-family:Roboto; font-size:14px; color:black;"><span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Option : <br> </span> {{ vehicule.options }}</p><br>
- <p style=" font-family:Roboto; font-size:14px; color:black;" > <span style="font-weight:bolder; font-family:Roboto; font-size:16px;">Révision / Entretien : <br> </span>  {{ vehicule.revision }}</p>
+
+<div class="text-left" style="margin-left:3%; ">
+ <p style=" font-family:Roboto; font-size:16px; color:white;"><span style="font-weight:bolder; font-family:Roboto; font-size:18px; color:black;">Garantie : <br> </span> {{ vehicule.garantie }}</p><br>
+ <p style=" font-family:Roboto; font-size:16px; color:white;"><span style="font-weight:bolder; font-family:Roboto; font-size:18px; color:black;">Option : <br> </span> {{ vehicule.options }}</p><br>
+ <p style=" font-family:Roboto; font-size:16px; color:white;" > <span style="font-weight:bolder; font-family:Roboto; font-size:18px; color:black;">Révision / Entretien : <br> </span>  {{ vehicule.revision }}</p>
 </div>
 <div class="mt-5 ml-4">
-<a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button class="btn btn-warning">Modifier</button></a></td>
+<a href="{{ path('vehicule_edit', {'id': vehicule.id}) }}"><button class="btn btn-warning">Modifier</button></a>
 {{ include('vehicule/create_modal.html.twig') }}
 
     {{ include('vehicule/_delete_form.html.twig') }}</div>
