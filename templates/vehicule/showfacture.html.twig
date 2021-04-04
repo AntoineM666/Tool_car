@@ -58,12 +58,12 @@ Tél : 06 22 22 25 25
    <div  style="margin-left:2.5%;">
    
 
-        <p style="font-size:12px;" ><span style="font-weight:bolder;">Marque :</span> {{ vehicule.marque }}</p>
-        <p style="font-size:12px;" ><span style="font-weight:bolder;">Modèle : </span>{{ vehicule.model }}</p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Marque :</span> {{ vehicule.marque | upper }}</p>
+        <p style="font-size:12px;" ><span style="font-weight:bolder;">Modèle : </span>{{ vehicule.model | upper }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Kilométrage : </span>{{ vehicule.kilometrage }}<span style="font-weight:bolder;">KM</span></p>
-        <p style="font-size:12px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero }}</p>
-        <p style="font-size:12px;"><span style="font-weight:bolder;">Ancienne Immatricualtion : </span>{{ vehicule.imatriculation }}</p>
-        <p style="font-size:12px;"><span style="font-weight:bolder;">Nouvelle Immatricualtion : </span>{{ vehicule.nouvelleimat }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">N° série : </span>{{ vehicule.numero | upper }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Ancienne Immatricualtion : </span>{{ vehicule.imatriculation | upper }}</p>
+        <p style="font-size:12px;"><span style="font-weight:bolder;">Nouvelle Immatricualtion : </span>{{ vehicule.nouvelleimat | upper }}</p>
         <p style="font-size:12px;"><span style="font-weight:bolder;">Mise en circulation : </span>{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</p>
         <p style="font-size:12px; overflow: hidden; width:300px;"><span style="font-weight:bolder; ">Option : </span>{{ vehicule.options }}</p>
 
