@@ -13,22 +13,22 @@
             <div class="row" style="border:2px solid black; width:600px; height:300px; margin-left:2%; margin-bottom:5%; padding:1%;  background-color:#6b6767; box-shadow:15px 15px 15px black;">
             <div class="col" style="">
            
-                <p class="text-card" style="">Marque : &nbsp;<span style="color:white;">{{ vehicule.marque }}</span></p>
+                <p class="text-card" style="">Marque : &nbsp;<span style="color:white;">{{ vehicule.marque | upper }}</span></p>
                 <p class="" style=""></p>
             
-                <p class="text-card">Modèle : &nbsp;<span style="color:white;">{{ vehicule.model }}</span></p>
+                <p class="text-card">Modèle : &nbsp;<span style="color:white;">{{ vehicule.model | upper }}</span></p>
                 <p class=""></p>
            
-                <p class="text-card">N° série : &nbsp;<span style="color:white;">{{ vehicule.numero }}</span></p>
+                <p class="text-card">N° série : &nbsp;<span style="color:white;">{{ vehicule.numero | upper }}</span></p>
                 <p class=""></p>
             
                 <p class="text-card">Kilométrage : &nbsp;<span style="color:white;">{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></span></p>
                 <p class=""></p>
            
-                <p class="text-card">Ancienne Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.imatriculation }}</span></p>
+                <p class="text-card">Ancienne Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.imatriculation | upper }}</span></p>
                 <p class=""></p>
          
-                <p class="text-card">Nouvelle Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.nouvelleimat }}</span></p>
+                <p class="text-card">Nouvelle Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.nouvelleimat | upper }}</span></p>
                 <p class=""></p>
            
                 <p class="text-card" style="">Mise en circulation : &nbsp;<span style="color:white;">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</span></p>

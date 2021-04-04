@@ -26,6 +26,13 @@ html::-webkit-scrollbar-thumb
     background:#343A40; 
 }
 
+html 
+
+{
+  scrollbar-color: #343A40 white ;
+  scrollbar-width: 1rem;
+}
+
 /*<--- SCROLL BAR --> */
 
 
