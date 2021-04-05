@@ -148,6 +148,11 @@ class Vehicule
      */
     private $clients;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $vente;
+
     public function __construct()
     {
         $this->vehicule = new ArrayCollection();
@@ -483,5 +488,17 @@ class Vehicule
     public function __toString()
     {
         return $this->imatriculation;
+    }
+
+    public function getVente(): ?bool
+    {
+        return $this->vente;
+    }
+
+    public function setVente(?bool $vente): self
+    {
+        $this->vente = $vente;
+
+        return $this;
     }
 }

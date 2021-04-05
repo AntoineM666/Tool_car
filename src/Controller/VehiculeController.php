@@ -189,6 +189,7 @@ class VehiculeController extends AbstractController
 
     }
 
+
     /**
      *
      * @Route("/vehicule/trombinoscope", name="trombinoscope")

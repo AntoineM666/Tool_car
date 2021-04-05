@@ -66,6 +66,11 @@ class Vehicule1Type extends AbstractType
             ->add('imageFile',FileType::class,[
                 'required'=> false, 
             ])
+            ->add('vente', ChoiceType::class, ['required'=> false,
+                'choices'  => [
+                    'oui' => '1',
+                    'non' => '0'
+                ]])
         ;
     }
 
