@@ -20,7 +20,7 @@
 <div class="row col-12 " style="padding-left:5%;"  > 
 {% for vehicule in vehicules %}
 
-
+   {% if vehicule.vente == 0 %}
 
 
 <div class="card m-4 hover-trombi" style="width: 21em; " >
@@ -36,7 +36,7 @@
     
   </a></div>
 
-
+  {% endif %}
 {% endfor %}
 
 

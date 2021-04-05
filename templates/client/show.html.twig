@@ -2,55 +2,58 @@
 
 {% block title %}Client{% endblock %}
 
-{% block body %}
-    <h1>Client</h1>
+{% block body %} {{ parent() }}
+<div class="card mx-auto" style="width:60%; border:2px gray solid; margin-bottom:5%;  background-color:#ada8a8;">
+        <div class="card-body">
+    <h1 class="title text-center">Client</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ client.id }}</td>
-            </tr>
-            <tr>
                 <th>Nom</th>
-                <td>{{ client.nom }}</td>
+                <td>{{ client.nom | upper }}</td>
             </tr>
             <tr>
                 <th>Prenom</th>
-                <td>{{ client.prenom }}</td>
+                <td>{{ client.prenom | upper }}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
-                <td>{{ client.adresse }}</td>
+                <td>{{ client.adresse | upper }}</td>
             </tr>
             <tr>
                 <th>Bp</th>
-                <td>{{ client.bp }}</td>
+                <td>{{ client.bp | upper }}</td>
             </tr>
             <tr>
                 <th>Ville</th>
-                <td>{{ client.ville }}</td>
+                <td>{{ client.ville | upper }}</td>
             </tr>
             <tr>
                 <th>Tel</th>
-                <td>{{ client.tel }}</td>
+                <td>{{ client.tel | upper }}</td>
             </tr>
             <tr>
                 <th>Email</th>
                 <td>{{ client.email }}</td>
             </tr>
             <tr>
-                <th>Voitures</th>
-                <td>{{ client.vehicule.model  }}</td>
+                <th>Véhicule</th>
+                {% if client.vehicule is null %}
+                <td>non vendu !</td>    
+                {% else %}
+                <td>{{ client.vehicule.marque | upper }} {{ client.vehicule.model  | upper }} <br> {{ client.vehicule.imatriculation | upper }}</td>{% endif %}
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('client_index') }}">back to list</a>
+ 
     
-    <a href="{{ path('client_edit', {'id': client.id}) }}">edit</a>
+    <div class="row mt-5 ml-4">
+    <a href="{{ path('client_edit', {'id': client.id}) }}"><button class="btn btn-warning">Modifier</button></a>&nbsp;&nbsp;
 
-    {{ include('client/_delete_form.html.twig') }}
+   
+   
 
     <button type="button" class="btn btn-primary "  data-toggle="modal" data-target="#exampleModalCenter2">Facture</button>
             <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -67,10 +70,18 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-                    <a  href="{{ path('showfacture2', {'id': client.id}) }}"><button type="button " data-toggle="modal" class="btn btn-primary" >Créer</button></a>
+                    <a  href="{{ path('showfacture', {'id': client.id}) }}"><button type="button " data-toggle="modal" class="btn btn-primary" >Créer</button></a>
 
                 </div>
                 </div>
             </div>
-            </div>
+            </div> 
+    </div>
+
+     {{ include('client/_delete_form.html.twig') }}
+
+            <div class="text-right"> <a href="{{ path('client_index') }}"><svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" style="color:black; margin-right:3%;" fill="currentColor" class="bi bi-box-arrow-right hover-arrow" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+</svg></a></div>
 {% endblock %}

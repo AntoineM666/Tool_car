@@ -95,9 +95,9 @@ class ClientController extends AbstractController
     }
 
      /**
-     * @Route("/{id}/facture", name="showfacture2", methods={"GET"})
+     * @Route("/{id}/facture", name="showfacture", methods={"GET"})
      */
-    public function showfacture2(Client $client)
+    public function showfacture(Client $client)
     {
         
 
@@ -113,7 +113,7 @@ class ClientController extends AbstractController
             $dompdf = new Dompdf($pdfOptions);
             
             // Retrieve the HTML generated in our twig file
-            $html = $this->renderView('client/showfacture2.html.twig', [
+            $html = $this->renderView('client/showfacture.html.twig', [
                 'client' => $client,
             ]);
             

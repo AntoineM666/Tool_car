@@ -32,6 +32,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href={{ path('vehicule_index') }}>Liste Véhicules</a>
+    <a class="dropdown-item" href="{{ path('historique') }}">Historique Véhicules</a>
     <a class="dropdown-item" href="{{ path('vehicule_new') }}">Ajouter Véhicule</a>
   </div>
 </div>
@@ -49,8 +50,8 @@
     Clients
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Liste Clients</a>
-    <a class="dropdown-item" href="#">Créer Client</a>
+    <a class="dropdown-item" href="{{ path('client_index') }}">Historique Clients</a>
+    <a class="dropdown-item" href="{{ path('client_new') }}">Créer Client</a>
   </div>
 </div>
   

@@ -1,4 +1,51 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+  <div class="container-fluid" style="border:10px white solid; padding:1%; width:45%; background-color:gray; box-shadow:14px 14px 14px black;">
+<div class="row">
+<div style="margin:3%;">
+   <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px;">
+            {{ form_label(form.nom, 'Nom') }}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control   size-form2'}}) }}
+        </div>
+
+         <div class="form-group mb-2 " style="font-weight:bolder; font-size:20px;">
+            {{ form_label(form.prenom, 'Prénom') }}
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control  size-form2 '}}) }}
+        </div>
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.adresse, 'Adresse') }}
+            {{ form_widget(form.adresse, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.bp, 'Boîte Postale') }}
+            {{ form_widget(form.bp, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+</div>
+<div style="margin:3%;">
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.ville, 'Ville') }}
+            {{ form_widget(form.ville, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.tel, 'Téléphone') }}
+            {{ form_widget(form.tel, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.email, 'Email') }}
+            {{ form_widget(form.email, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+
+        <div class="form-group mb-2" style="font-weight:bolder; font-size:20px; ">
+            {{ form_label(form.vehicule, 'Immatriculation du Véhicule') }}
+            {{ form_widget(form.vehicule, {'attr': {'class': 'form-control size-form2  '}}) }}
+        </div>
+</div>
+ 
+</div><div class="text-center"> <button class="btn btn-success mt-5">{{ button_label|default('Sauvegarder') }}</button> </div>
+</div>
+    
 {{ form_end(form) }}

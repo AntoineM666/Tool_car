@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    Facture n°
+    Facture n°{{ client.id }}
 {% endblock %}
 {% block body %}
 
@@ -43,9 +43,9 @@ Date facture : {{ "now"|date("d/m/Y") }} <br> Particulier - Professionnel</p>
 </h3>
 <p style="text-align:right; margin-bottom:2.5%; font-size:15px;"> 
 {{ client.nom  | upper }} {{ client.prenom }}<br>
-Adresse : 57 rue de la gloire <br>
-62360 ST léonard <br>
-Tél : 06 22 22 25 25
+{{ client.adresse | upper }} <br>
+{{ client.bp }} {{ client.ville | upper }} <br>
+Tél : {{ client.tel }}
 
 
 </p>
