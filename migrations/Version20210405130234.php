@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210405125251 extends AbstractMigration
+final class Version20210405130234 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -20,16 +20,13 @@ final class Version20210405125251 extends AbstractMigration
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE client ADD vehicule_id INT DEFAULT NULL');
+        $this->addSql('CREATE TABLE client (id INT AUTO_INCREMENT NOT NULL, vehicule_id INT DEFAULT NULL, nom VARCHAR(255) NOT NULL, prenom VARCHAR(255) NOT NULL, adresse LONGTEXT NOT NULL, bp INT NOT NULL, ville VARCHAR(255) NOT NULL, tel VARCHAR(255) NOT NULL, email VARCHAR(255) DEFAULT NULL, INDEX IDX_C74404554A4A3511 (vehicule_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE client ADD CONSTRAINT FK_C74404554A4A3511 FOREIGN KEY (vehicule_id) REFERENCES vehicule (id)');
-        $this->addSql('CREATE INDEX IDX_C74404554A4A3511 ON client (vehicule_id)');
     }
 
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE client DROP FOREIGN KEY FK_C74404554A4A3511');
-        $this->addSql('DROP INDEX IDX_C74404554A4A3511 ON client');
-        $this->addSql('ALTER TABLE client DROP vehicule_id');
+        $this->addSql('DROP TABLE client');
     }
 }
