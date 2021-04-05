@@ -43,6 +43,16 @@ class VehiculeController extends AbstractController
     }
 
     /**
+     * @Route("/historique", name="historique", methods={"GET"})
+     */
+    public function historique(VehiculeRepository $vehiculeRepository): Response
+    {
+        return $this->render('vehicule/historique.html.twig', [
+            'vehicules' => $vehiculeRepository->findAll(),
+        ]);
+    }
+
+    /**
      * @Route("/new", name="vehicule_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
