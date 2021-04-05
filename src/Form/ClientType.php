@@ -19,6 +19,7 @@ class ClientType extends AbstractType
             ->add('ville')
             ->add('tel')
             ->add('email')
+            ->add('vehicule')
         ;
     }
 

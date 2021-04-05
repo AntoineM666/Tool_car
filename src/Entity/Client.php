@@ -52,6 +52,11 @@ class Client
      */
     private $email;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Vehicule::class, inversedBy="clients")
+     */
+    private $vehicule;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,4 +145,18 @@ class Client
 
         return $this;
     }
+
+    public function getVehicule(): ?Vehicule
+    {
+        return $this->vehicule;
+    }
+
+    public function setVehicule(?Vehicule $vehicule): self
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+ 
 }

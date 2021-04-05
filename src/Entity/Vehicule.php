@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\VehiculeRepository;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\File;
@@ -142,10 +143,16 @@ class Vehicule
      */
     private $garantie;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Client::class, mappedBy="vehicule")
+     */
+    private $clients;
+
     public function __construct()
     {
         $this->vehicule = new ArrayCollection();
         $this->created_at = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+        $this->clients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -441,5 +448,40 @@ class Vehicule
         $this->garantie = $garantie;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Client[]
+     */
+    public function getClients(): Collection
+    {
+        return $this->clients;
+    }
+
+    public function addClient(Client $client): self
+    {
+        if (!$this->clients->contains($client)) {
+            $this->clients[] = $client;
+            $client->setVehicule($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClient(Client $client): self
+    {
+        if ($this->clients->removeElement($client)) {
+            // set the owning side to null (unless already changed)
+            if ($client->getVehicule() === $this) {
+                $client->setVehicule(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->imatriculation;
     }
 }
