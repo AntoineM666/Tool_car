@@ -4,52 +4,52 @@
 
 {% block body %} {{ parent() }}
 <div class="card mx-auto" style="width:60%; border:2px gray solid; margin-bottom:5%;  background-color:#ada8a8;">
-        <div class="card-body">
+        <div class="card-body" >
     <h1 class="title text-center">Client</h1>
 
-    <table class="table">
+    <table class="table" style="width:500px; border:2px black solid; margin-bottom:5%;  margin-left:25%; background-color:#6B6767; box-shadow:15px 15px 15px black;">
         <tbody>
             <tr>
-                <th>Nom</th>
-                <td>{{ client.nom | upper }}</td>
+                <th  class="text-card">Nom</th>
+                <td><span style="color:white;">{{ client.nom | upper }}</span></td>
             </tr>
             <tr>
-                <th>Prenom</th>
-                <td>{{ client.prenom | upper }}</td>
+                <th  class="text-card">Prenom</th>
+                <td><span style="color:white;">{{ client.prenom | upper }}</span></td>
             </tr>
             <tr>
-                <th>Adresse</th>
-                <td>{{ client.adresse | upper }}</td>
+                <th  class="text-card">Adresse</th>
+                <td><span style="color:white;">{{ client.adresse | upper }}</span></td>
             </tr>
             <tr>
-                <th>Bp</th>
-                <td>{{ client.bp | upper }}</td>
+                <th  class="text-card">Boîte Postale</th>
+                <td><span style="color:white;">{{ client.bp | upper }}</span></td>
             </tr>
             <tr>
-                <th>Ville</th>
-                <td>{{ client.ville | upper }}</td>
+                <th  class="text-card">Ville</th>
+                <td><span style="color:white;">{{ client.ville | upper }}</span></td>
             </tr>
             <tr>
-                <th>Tel</th>
-                <td>{{ client.tel | upper }}</td>
+                <th class="text-card">Tel</th>
+                <td><span style="color:white;">{{ client.tel | upper }}</span></td>
             </tr>
             <tr>
-                <th>Email</th>
-                <td><a style="color:black;" href="mailto:{{ client.email }}">{{ client.email }}</a></td>
+                <th class="text-card">Email</th>
+                <td><a style="color:white;" href="mailto:{{ client.email }}">{{ client.email }}</a></td>
             </tr>
             <tr>
-                <th>Véhicule</th>
+                <th class="text-card">Véhicule</th>
                 {% if client.vehicule is null %}
-                <td>non vendu !</td>    
+                <td><span style="color:white;">non vendu !</span></td>    
                 {% else %}
-                <td>{{ client.vehicule.marque | upper }} {{ client.vehicule.model  | upper }} <br> {{ client.vehicule.imatriculation | upper }}</td>{% endif %}
+                <td><span style="color:white;">{{ client.vehicule.marque | upper }} {{ client.vehicule.model  | upper }} <br> {{ client.vehicule.imatriculation | upper }}</span></td>{% endif %}
             </tr>
         </tbody>
     </table>
 
  
     
-    <div class="row mt-5 ml-4">
+    <div class="row " style="margin-left:25%;">
     <a href="{{ path('client_edit', {'id': client.id}) }}"><button class="btn btn-warning">Modifier</button></a>&nbsp;&nbsp;
 
    
@@ -76,7 +76,7 @@
                 </div>
             </div>
             </div> 
-    </div>
+    </div><br><br>
 
      {{ include('client/_delete_form.html.twig') }}
 
