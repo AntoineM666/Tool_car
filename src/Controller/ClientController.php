@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Client;
 use App\Form\ClientType;
+use App\Form\SearchFormTypeClient;
+
 use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -134,5 +136,38 @@ class ClientController extends AbstractController
 
 
 
+    }
+
+
+        /**
+     * 
+     * @Route("/client/rechercheClient", name="searchClient")
+     */
+    public function rechercheClient(Request $request, ClientRepository $repo ) {
+      
+        $searchFormClient = $this->createForm(SearchFormTypeClient::class);
+        $searchFormClient->handleRequest($request);
+        
+        $donnees = $repo;
+ 
+        if ($searchFormClient->isSubmitted() && $searchFormClient->isValid()) {
+ 
+            $nom = $searchFormClient->getData()->getNom();
+
+            $donnees = $repo->searchClient($nom);
+
+
+            if ($donnees == null) {
+                $this->addFlash('erreur', 'Aucun article contenant ce mot clé dans le titre n\'a été trouvé, essayez en un autre.');
+           
+            }
+
+    }
+
+
+        return $this->render('client/searchClient.html.twig', [
+            'clients'=>$donnees ,
+            'searchFormClient' => $searchFormClient->createView()
+        ]);
     }
 }

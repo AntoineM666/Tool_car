@@ -2,19 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\Vehicule;
+use App\Entity\Client;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class SearchFormType extends AbstractType
+class SearchFormTypeClient extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('marque', TextType::class, array('attr' => array(
-                'placeholder' => 'Entrez la marque du véhicule ...'
+            ->add('nom', TextType::class, array('attr' => array(
+                'placeholder' => 'Entrez le nom du client ...'
             )))
          
         ;
@@ -23,7 +23,7 @@ class SearchFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' =>Vehicule::class,
+            'data_class' =>Client::class,
         ]);
     }
 }

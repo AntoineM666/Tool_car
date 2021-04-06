@@ -1,19 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Historique des clients{% endblock %}
-
-{% block body %} {{ parent() }}
-<body>
+{% block title %}Recherche Client{% endblock %}
+{% block body %}{{ parent() }}
+  <body>
+      
+    <div class="container-fluid ">
     
+    <h1 class="title"> Recherche Client </h1>
+        <div class="row" style="margin-left:0.5%;">
+        <div class="">
+            {{ form_start(searchFormClient) }}
+        {{ form_row(searchFormClient.nom , {'label': " ", 'attr': {'placeholder': 'Nom du client'}}) }}
+        
+           </div>
 
-    <div class="card mx-auto" >
-        <div class="card-body">
+        <div > <button class="btn btn-outline-dark btn-sm mb-4 " style=" margin-left:10%;"  type="submit">chercher</button></div>
+     </div>
+     {{ form_end(searchFormClient) }}
 
-            <h3 class="card-title text-center title">Historique des clients</h3><br>
- <a href="{{ path('client_new') }}"><button type="button" class="btn btn-primary mx-1 my-2 mb-4">Ajouter un nouveau client</button></a>
-        <a href="{{ path('searchClient') }}"><button type="button" class="btn btn-success mx-1 my-2 mb-4">rechercher</button></a>
-    
-    <div class="table">
+     <div class="table">
             <table class="table table-striped text-center">
                 <thead class="thead-dark">
             <tr>
@@ -63,5 +68,5 @@
         </tbody>
     </table>
 
-   
+   <a href="{{ path('client_index') }}"><button type="button" class="btn btn-warning mx-1 my-2 mb-4">Retour liste Client</button></a>
 {% endblock %}
