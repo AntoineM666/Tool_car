@@ -126,6 +126,16 @@ font-weight: 500;
     background-color: transparent;
 }
 
+.size-form4{
+    width:150px;
+    border: none;
+    border-bottom: 3px solid white;
+    color:white;
+    font-weight: bold;
+    background-color: transparent;
+    
+}
+
  .table th, .table td { border-top: none !important; } 
 
  .text-card{
