@@ -10,44 +10,44 @@
             <br/> 
             <div class="card-text">
 
-            <div class="row" style="border:2px solid black; width:600px; height:300px; margin-left:2%; margin-bottom:5%; padding:1%;  background-color:#6b6767; box-shadow:15px 15px 15px black;">
+            <div class="row" style="border:2px solid black; width:600px; height:350px; margin-left:2%; margin-bottom:5%; padding:1%;  background-color:#6b6767; box-shadow:15px 15px 15px black;">
             <div class="col" style="">
            
                 <p class="text-card" style="">Marque : &nbsp;<span style="color:white;">{{ vehicule.marque | upper }}</span></p>
-                <p class="" style=""></p>
+                
             
                 <p class="text-card">Modèle : &nbsp;<span style="color:white;">{{ vehicule.model | upper }}</span></p>
-                <p class=""></p>
+                
            
                 <p class="text-card">N° série : &nbsp;<span style="color:white;">{{ vehicule.numero | upper }}</span></p>
-                <p class=""></p>
+                
             
                 <p class="text-card">Kilométrage : &nbsp;<span style="color:white;">{{ vehicule.kilometrage }}&nbsp;<span style="font-weight:bold;">Km<span></span></p>
-                <p class=""></p>
+                
            
                 <p class="text-card">Ancienne Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.imatriculation | upper }}</span></p>
-                <p class=""></p>
+                
          
                 <p class="text-card">Nouvelle Immatriculation : &nbsp;<span style="color:white;">{{ vehicule.nouvelleimat | upper }}</span></p>
-                <p class=""></p>
+                
            
                 <p class="text-card" style="">Mise en circulation : &nbsp;<span style="color:white;">{{ vehicule.miseencirculation ? vehicule.miseencirculation|date('d-m-Y') : '' }}</span></p>
-                <p class=""></p>
+                
            
             </div>
             <div  class="col" style="margin-right:-15%;">
             
                 <p class="text-card" style="">Porte : &nbsp;<span style="color:white;">{{ vehicule.porte }}</span></p>
-                <p class="" style=""></p>
+                
            
                 <p class="text-card">Carburant : &nbsp;<span style="color:white;">{{ vehicule.carburant }}</span></p>
-                <p class=""></p>
+                
             
                 <p class="text-card">Boîte : &nbsp;<span style="color:white;">{{ vehicule.boite }}</span></p>
-                <p class=""></p>
+                
             
                 <p class="text-card">Puissance : &nbsp;<span style="color:white;">{{ vehicule.puissance }}&nbsp;<span style="font-weight:bold;">Cv<span></span></p>
-                <p class=""></p>
+                
             {% if vehicule.annonce is null %}
                  <p class="text-card">Annonce : &nbsp;<span style="color:white;"> vide</span></p>
                    {% else %}
@@ -56,11 +56,18 @@
                      {% endif %}
             
                 <p class="text-card">Prix d'achat :&nbsp;<span style="color:white;">{{ vehicule.prixachat }}<span style="font-weight:bold">€</span></span></p>
-                <p class=""></p>
+                
            
                 <p class="text-card">Prix de vente : &nbsp;<span style="color:white;">{{ vehicule.prixvente }}<span style="font-weight:bold">€</span></span></p>
-                <p class=""></p>
-    </div>        
+                
+                {% if vehicule.vente is null %}
+                 <p class="text-card">Vente : &nbsp;<span style="color:white;"> non-vendu !</span></p>
+                   {% else %}
+                 {% if vehicule.vente == 1 %}   
+              <p class="text-card">Vente : &nbsp;<span style="color:white;">vendu !</span></p>
+                     {% endif %} 
+                     {% endif %}
+    </div>       
 
 </div>
    
