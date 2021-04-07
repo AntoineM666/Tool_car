@@ -64,7 +64,7 @@
                  <p class="text-card">Vente : &nbsp;<span style="color:white;"> non-vendu !</span></p>
                    {% else %}
                  {% if vehicule.vente == 1 %}   
-              <p class="text-card">Vente : &nbsp;<span style="color:white;">vendu !</span></p>
+              <p class="text-card">Vente : &nbsp;<span style="color:white;">vendu à {{ client.nom  | upper }} {{ client.prenom }}</span></p>
                      {% endif %} 
                      {% endif %}
     </div>       

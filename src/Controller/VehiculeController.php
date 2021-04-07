@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Vehicule;
 use App\Form\SearchFormType;
 use App\Form\Vehicule1Type;
@@ -78,10 +79,11 @@ class VehiculeController extends AbstractController
     /**
      * @Route("/{id}", name="vehicule_show", methods={"GET"})
      */
-    public function show(Vehicule $vehicule): Response
+    public function show(Vehicule $vehicule ,Client $client): Response
     {
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
+            'client' => $client,
         ]);
     }
 
